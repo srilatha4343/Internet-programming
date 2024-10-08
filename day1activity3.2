@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+        #dragItem {
+            width: 150px;
+            cursor: move;
+            margin-bottom: 20px;
+        }
+        #dropArea {
+            width: 100%;
+            max-width: 400px;
+            height: 200px;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            line-height: 200px;
+            color: #ccc;
+        }
+        #dropArea.dragover {
+            border-color: #4CAF50;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Drag and Drop Example</h1>
+    <!-- Draggable Image -->
+    <img id="dragItem" src="https://via.placeholder.com/150" alt="Draggable Image" draggable="true">
+
+    <!-- Drop Area -->
+    <div id="dropArea">Drop Here</div>
+</div>
+
+<script>
+    // Get the draggable item and the drop area
+    const dragItem = document.getElementById('dragItem');
+    const dropArea = document.getElementById('dropArea');
+
+    // Handle drag start
+    dragItem.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text/plain', dragItem.id);
+    });
+
+    // Handle drag over event (necessary to allow dropping)
+    dropArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropArea.classList.add('dragover');
+    });
+
+    // Handle drag leave event (when item is dragged out of the drop area)
+    dropArea.addEventListener('dragleave', () => {
+        dropArea.classList.remove('dragover');
+    });
+
+    // Handle drop event
+    dropArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        const draggedElementId = e.dataTransfer.getData('text');
+        const draggedElement = document.getElementById(draggedElementId);
+        dropArea.appendChild(draggedElement);
+        dropArea.classList.remove('dragover');
+        dropArea.textContent = ''; // Clear the "Drop Here" text
+    });
+</script>
+
+</body>
+</html>
