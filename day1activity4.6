@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model Example</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Internal CSS for the Box Model Example */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .box {
+            width: 300px; /* Width of the content area */
+            margin: 20px auto; /* Centering the box horizontally */
+            padding: 20px; /* Padding inside the box */
+            border: 5px solid #4CAF50; /* Border around the box */
+            background-color: #ffffff; /* Background color of the content area */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+        }
+
+        .box p {
+            margin: 0; /* Remove default margin for paragraph */
+        }
+
+        .explanation {
+            margin-top: 20px;
+            background-color: #e8f5e9; /* Light green background for explanation */
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Understanding CSS Box Model</h1>
+
+    <div class="box">
+        <h2>Box Model Example</h2>
+        <p>This box demonstrates the CSS box model.</p>
+    </div>
+
+    <div class="explanation">
+        <h3>Box Model Breakdown:</h3>
+        <ul>
+            <li><strong>Content:</strong> The actual content of the box (text, images, etc.).</li>
+            <li><strong>Padding:</strong> Space between the content and the border.</li>
+            <li><strong>Border:</strong> The line surrounding the padding (optional).</li>
+            <li><strong>Margin:</strong> Space outside the border (separates the box from other elements).</li>
+        </ul>
+    </div>
+
+</body>
+</html>
