@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Effects Example</title>
+    <style>
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Header with text-shadow */
+        h1 {
+            color: #333;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); /* Horizontal, vertical, blur radius, color */
+            font-size: 3em;
+        }
+
+        /* Box-shadow for content containers */
+        .container {
+            background-color: white;
+            padding: 40px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Horizontal, vertical, blur, spread, color */
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        .container h2 {
+            color: #4CAF50;
+            text-shadow: 2px 2px 4px rgba(0, 150, 0, 0.6); /* Green shadow */
+        }
+
+        .container p {
+            color: #555;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        /* Button with shadow */
+        .button {
+            background-color: #ff5722;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            display: inline-block;
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4); /* Shadow under the button */
+        }
+
+        .button:hover {
+            background-color: #ff784e;
+            box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.6); /* Larger shadow on hover */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section with Text Shadow -->
+    <h1>Shadow Effects in Web Design</h1>
+
+    <!-- First container with box shadow -->
+    <div class="container">
+        <h2>What is Shadow in CSS?</h2>
+        <p>
+            CSS provides two types of shadows: text-shadow and box-shadow. Text-shadow is used to add shadow to text,
+            and box-shadow is used to add shadow to boxes (like divs, images, etc.). These effects give depth to your
+            design, making elements appear more realistic.
+        </p>
+    </div>
+
+    <!-- Second container with box shadow -->
+    <div class="container">
+        <h2>Box Shadow Example</h2>
+        <p>
+            The container you're seeing now has a box-shadow effect applied to it. You can adjust the size, spread, and
+            color of the shadow to create various effects.
+        </p>
+    </div>
+
+    <!-- Button with shadow -->
+    <a href="#" class="button">Click Me</a>
+
+</body>
+</html>
