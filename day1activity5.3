@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animations Example</title>
+    <style>
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Animating text (slide-in) */
+        h1 {
+            color: #333;
+            font-size: 3em;
+            margin: 0;
+            animation: slideIn 2s ease-in-out; /* Apply the slide-in animation */
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%); /* Start from off-screen (left) */
+            }
+            100% {
+                transform: translateX(0); /* Slide to original position */
+            }
+        }
+
+        /* Box animation (bounce) */
+        .box {
+            display: inline-block;
+            margin: 40px;
+            padding: 50px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 10px;
+            animation: bounce 2s infinite; /* Infinite bounce animation */
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0); /* Starting and ending point */
+            }
+            50% {
+                transform: translateY(-30px); /* Move up */
+            }
+        }
+
+        /* Rotating element */
+        .rotate {
+            display: inline-block;
+            margin: 40px;
+            padding: 50px;
+            background-color: #ff5722;
+            color: white;
+            border-radius: 10px;
+            animation: rotate 3s linear infinite; /* Infinite rotating animation */
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg); /* Start from 0 degree */
+            }
+            100% {
+                transform: rotate(360deg); /* Rotate full circle */
+            }
+        }
+
+        /* Button with animation */
+        .button {
+            margin-top: 40px;
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #03a9f4;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            animation: pulsate 1.5s infinite ease-in-out; /* Pulsating button */
+        }
+
+        @keyframes pulsate {
+            0%, 100% {
+                transform: scale(1); /* Original size */
+            }
+            50% {
+                transform: scale(1.1); /* Slightly larger */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section with slide-in animation -->
+    <h1>CSS Animations Example</h1>
+
+    <!-- Bouncing box -->
+    <div class="box">
+        <p>Bouncing Box</p>
+    </div>
+
+    <!-- Rotating box -->
+    <div class="rotate">
+        <p>Rotating Box</p>
+    </div>
+
+    <!-- Pulsating Button -->
+    <a href="#" class="button">Pulsating Button</a>
+
+</body>
+</html>
