@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transitions and Transformations Example</title>
+    <style>
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        /* Container styling */
+        .container {
+            display: inline-block;
+            margin: 50px;
+            padding: 30px;
+            background-color: #ff9800;
+            color: white;
+            border-radius: 10px;
+            transition: transform 0.5s, background-color 0.5s; /* Smooth transition */
+        }
+
+        /* Hover Effect with transform and transition */
+        .container:hover {
+            transform: scale(1.2) rotate(10deg); /* Scaling and rotating */
+            background-color: #4CAF50; /* Changing background color */
+        }
+
+        /* Box moving right on hover */
+        .move-right {
+            display: inline-block;
+            margin: 50px;
+            padding: 30px;
+            background-color: #03a9f4;
+            color: white;
+            border-radius: 10px;
+            transition: transform 0.5s ease; /* Smooth transition */
+        }
+
+        /* Hover Effect with transform to move the box */
+        .move-right:hover {
+            transform: translateX(100px); /* Moves 100px to the right */
+        }
+
+        /* Button with transformation and transition */
+        .button {
+            margin-top: 40px;
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ff5722;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: transform 0.3s ease-in-out; /* Smooth transition */
+        }
+
+        /* Button transformation on hover */
+        .button:hover {
+            transform: scale(1.1); /* Slightly enlarge the button */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <h1>Transitions and Transformations in CSS</h1>
+
+    <!-- First container for scale and rotate transformation -->
+    <div class="container">
+        <h2>Scale & Rotate</h2>
+        <p>Hover over me to see the effect!</p>
+    </div>
+
+    <!-- Second container for move transformation -->
+    <div class="move-right">
+        <h2>Move Right</h2>
+        <p>Hover over me to move right!</p>
+    </div>
+
+    <!-- Button with transition and transformation -->
+    <a href="#" class="button">Hover Me!</a>
+
+</body>
+</html>
