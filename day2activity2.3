@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamically Adding Elements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #container {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        .dynamic-element {
+            background-color: #4CAF50;
+            color: white;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dynamically Adding Elements</h1>
+    <button onclick="addElement()">Add Element</button>
+
+    <div id="container"></div>
+
+    <script>
+        function addElement() {
+            // Create a new paragraph element
+            var newElement = document.createElement("p");
+            // Add text to the new element
+            newElement.innerHTML = "This is a dynamically added element!";
+            // Add a class to the new element for styling
+            newElement.className = "dynamic-element";
+            // Append the new element to the container
+            document.getElementById("container").appendChild(newElement);
+        }
+    </script>
+
+</body>
+</html>
