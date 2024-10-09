@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display JSON Data from Server</title>
+</head>
+<body>
+
+<h1>Display JSON Data from Server</h1>
+
+<!-- WebSocket Example -->
+<h2>WebSocket Example</h2>
+<div id="websocket-data"></div>
+
+<script>
+    // Create WebSocket connection
+    const socket = new WebSocket('ws://your-server-url');
+
+    // Event handler for receiving messages
+    socket.addEventListener('message', function (event) {
+        // Parse JSON string into an object
+        const receivedData = JSON.parse(event.data);
+
+        // Get the div where data will be displayed
+        const dataDiv = document.getElementById('websocket-data');
+
+        // Display the JSON data on the web page
+        dataDiv.innerHTML = `<pre>${JSON.stringify(receivedData, null, 2)}</pre>`;
+    });
+</script>
+
+<!-- Fetch Example -->
+<h2>Fetch Example</h2>
+<div id="fetch-data"></div>
+
+<script>
+    // Fetch data from server
+    fetch('https://your-server-endpoint.com/data')
+        .then(response => response.json())  // Convert response to JSON
+        .then(data => {
+            // Get the div where data will be displayed
+            const dataDiv = document.getElementById('fetch-data');
+
+            // Display the JSON data on the web page
+            dataDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+</script>
+
+</body>
+</html>
