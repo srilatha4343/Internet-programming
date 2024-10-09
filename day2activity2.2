@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Events and Load Event Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #4CAF50;
+            margin: 20px auto;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+            transition: background-color 0.3s;
+        }
+
+        #message {
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Event Handling Example</h1>
+
+    <div class="box" id="hoverBox" onmouseover="handleMouseOver()" onmouseout="handleMouseOut()">
+        Hover Over Me
+    </div>
+
+    <div id="message">Welcome! Hover over the box above.</div>
+
+    <script>
+        // Function to handle mouse over event
+        function handleMouseOver() {
+            var box = document.getElementById("hoverBox");
+            box.style.backgroundColor = "#FF5722"; // Change color on mouse over
+            document.getElementById("message").innerHTML = "You're hovering over the box!";
+        }
+
+        // Function to handle mouse out event
+        function handleMouseOut() {
+            var box = document.getElementById("hoverBox");
+            box.style.backgroundColor = "#4CAF50"; // Change color back on mouse out
+            document.getElementById("message").innerHTML = "Welcome! Hover over the box above.";
+        }
+
+        // Function to handle page load event
+        window.onload = function() {
+            alert("Page is fully loaded!"); // Alert when the page is fully loaded
+        };
+    </script>
+
+</body>
+</html>
