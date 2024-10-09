@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Text Style from Server</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #message {
+            font-size: 1.5em;
+            margin: 20px 0;
+            color: #000;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Update Text Style from Server</h1>
+    <div id="message">This is the original message.</div>
+    <button onclick="fetchServerData()">Update Message Style</button>
+
+    <script>
+        function fetchServerData() {
+            // Simulating a server response
+            const simulatedServerResponse = {
+                message: "Updated message from server!",
+                style: {
+                    color: "blue",
+                    fontSize: "2em",
+                    fontWeight: "bold"
+                }
+            };
+
+            // Update the message text and style based on server response
+            const messageElement = document.getElementById("message");
+            messageElement.innerHTML = simulatedServerResponse.message;
+
+            // Update style
+            messageElement.style.color = simulatedServerResponse.style.color;
+            messageElement.style.fontSize = simulatedServerResponse.style.fontSize;
+            messageElement.style.fontWeight = simulatedServerResponse.style.fontWeight;
+
+            console.log("Message updated from server!");
+        }
+    </script>
+
+</body>
+</html>
