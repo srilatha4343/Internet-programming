@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Exception Handling Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+
+        .success {
+            color: green;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Exception Handling in JavaScript</h1>
+
+    <div class="container">
+        <input type="text" id="numberInput" placeholder="Enter a number">
+
+        <!-- Button to trigger the validation -->
+        <button onclick="handleException()">Check Number</button>
+
+        <!-- Placeholder for output -->
+        <div id="message"></div>
+    </div>
+
+    <script>
+        function handleException() {
+            var input = document.getElementById("numberInput").value;
+            var message = document.getElementById("message");
+
+            // Clear previous message
+            message.innerHTML = "";
+
+            try {
+                // Check if the input is a number
+                if (input === "") {
+                    throw "Input is empty! Please enter a number."; // Custom exception
+                }
+
+                if (isNaN(input)) {
+                    throw "This is not a valid number."; // If input is not a number
+                }
+
+                if (input < 0) {
+                    throw "Number cannot be negative."; // If input is a negative number
+                }
+
+                // If everything is fine
+                message.innerHTML = "<span class='success'>You entered a valid number: " + input + "</span>";
+            } catch (error) {
+                // Handle errors and display them
+                message.innerHTML = "<span class='error'>" + error + "</span>";
+            } finally {
+                // Code that always executes
+                console.log("Exception handling complete.");
+            }
+        }
+    </script>
+
+</body>
+</html>
