@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation with Regular Expressions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Form Validation Example</h1>
+
+    <div class="container">
+        <!-- Name input field -->
+        <input type="text" id="name" placeholder="Enter your name" required>
+        <div class="error" id="nameError"></div>
+
+        <!-- Phone number input field -->
+        <input type="text" id="phone" placeholder="Enter your phone number" required>
+        <div class="error" id="phoneError"></div>
+
+        <!-- Password input field -->
+        <input type="password" id="password" placeholder="Enter your password" required>
+        <div class="error" id="passwordError"></div>
+
+        <!-- Email input field -->
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <div class="error" id="emailError"></div>
+
+        <!-- Submit button -->
+        <button onclick="validateForm()">Submit</button>
+    </div>
+
+    <script>
+        function validateForm() {
+            // Clear previous error messages
+            document.getElementById("nameError").innerHTML = "";
+            document.getElementById("phoneError").innerHTML = "";
+            document.getElementById("passwordError").innerHTML = "";
+            document.getElementById("emailError").innerHTML = "";
+
+            // Regular Expressions
+            var nameRegex = /^[A-Za-z\s]{3,}$/; // Name should be at least 3 characters, letters and spaces only
+            var phoneRegex = /^\d{10}$/; // Phone number should be exactly 10 digits
+            var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/; // At least 6 characters, 1 letter and 1 number
+            var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/; // Basic email format
+
+            // Get user input values
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+            var password = document.getElementById("password").value;
+            var email = document.getElementById("email").value;
+
+            var isValid = true;
+
+            // Validate Name
+            if (!nameRegex.test(name)) {
+                document.getElementById("nameError").innerHTML = "Name must contain only letters and spaces, and be at least 3 characters long.";
+                isValid = false;
+            }
+
+            // Validate Phone Number
+            if (!phoneRegex.test(phone)) {
+                document.getElementById("phoneError").innerHTML = "Phone number must be exactly 10 digits.";
+                isValid = false;
+            }
+
+            // Validate Password
+            if (!passwordRegex.test(password)) {
+                document.getElementById("passwordError").innerHTML = "Password must be at least 6 characters long and contain at least one letter and one number.";
+                isValid = false;
+            }
+
+            // Validate Email
+            if (!emailRegex.test(email)) {
+                document.getElementById("emailError").innerHTML = "Please enter a valid email address.";
+                isValid = false;
+            }
+
+            // If all fields are valid, show success message
+            if (isValid) {
+                alert("Form submitted successfully!");
+            }
+        }
+    </script>
+
+</body>
+</html>
