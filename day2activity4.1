@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket and Fetch Example</title>
+</head>
+<body>
+
+<h1>WebSocket and Fetch Example</h1>
+
+<!-- WebSocket Example -->
+<h2>WebSocket Communication</h2>
+<p>Open the browser console to see WebSocket messages.</p>
+
+<script>
+    // WebSocket connection
+    const socket = new WebSocket('ws://your-websocket-server-url');
+
+    // Event handler for when the connection is opened
+    socket.addEventListener('open', function (event) {
+        console.log("Connected to the WebSocket server.");
+    });
+
+    // Event handler for receiving messages
+    socket.addEventListener('message', function (event) {
+        console.log('Message received from WebSocket server:', event.data);
+
+        // Convert the message (which is expected to be JSON text) into an object
+        try {
+            const receivedObject = JSON.parse(event.data);
+            console.log("Object representation:", receivedObject);
+        } catch (error) {
+            console.error("Error parsing WebSocket message as JSON:", error);
+        }
+    });
+
+    // Sending a message to the WebSocket server (optional)
+    socket.addEventListener('open', function () {
+        socket.send('Hello WebSocket Server!');
+    });
+</script>
+
+<!-- Fetch Example -->
+<h2>Fetch HTTP Request</h2>
+<p>Open the browser console to see Fetch API messages.</p>
+
+<script>
+    // Fetch HTTP request
+    fetch('https://your-fetch-endpoint.com/message')
+        .then(response => response.text())  // Receive the response as text
+        .then(text => {
+            console.log('Message received from Fetch API server:', text);
+
+            // Convert the message to an object
+            try {
+                const receivedObject = JSON.parse(text);
+                console.log("Object representation:", receivedObject);
+            } catch (error) {
+                console.error("Error parsing Fetch API message as JSON:", error);
+            }
+        })
+        .catch(error => {
+            console.error("Error fetching message:", error);
+        });
+</script>
+
+</body>
+</html>
