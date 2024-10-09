@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #message {
+            font-size: 1.5em;
+            margin: 20px 0;
+            color: #000;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>User Login</h1>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="validateLogin()">Login</button>
+
+    <div id="message">Please enter your credentials.</div>
+
+    <script>
+        function validateLogin() {
+            // Simulated server response for validation
+            const simulatedServerResponse = {
+                validCredentials: true, // Change to false to simulate invalid login
+                message: "Login successful! Welcome back!",
+                style: {
+                    color: "green"
+                }
+            };
+
+            // Get user input
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Simulate credential check
+            if (username && password) {
+                // Simulate a server delay with setTimeout
+                setTimeout(() => {
+                    if (simulatedServerResponse.validCredentials) {
+                        updateMessage(simulatedServerResponse.message, simulatedServerResponse.style);
+                    } else {
+                        updateMessage("Invalid credentials. Please try again.", { color: "red" });
+                    }
+                }, 1000); // Simulate a 1 second server response time
+            } else {
+                updateMessage("Please enter both username and password.", { color: "red" });
+            }
+        }
+
+        function updateMessage(message, style) {
+            const messageElement = document.getElementById("message");
+            messageElement.innerHTML = message;
+            messageElement.style.color = style.color;
+        }
+    </script>
+
+</body>
+</html>
