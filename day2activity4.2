@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Object Data to Server</title>
+</head>
+<body>
+
+<h1>Send Object Data to Server</h1>
+
+<!-- WebSocket Example -->
+<h2>WebSocket Example</h2>
+<p>Open the console to see WebSocket communication.</p>
+
+<script>
+    // Sample object to send via WebSocket
+    const objectToSendWebSocket = {
+        name: "John",
+        age: 30,
+        occupation: "Developer"
+    };
+
+    // Convert object to JSON string
+    const jsonStringWebSocket = JSON.stringify(objectToSendWebSocket);
+
+    // Create WebSocket connection
+    const socket = new WebSocket('ws://your-server-url');
+
+    // Send the JSON string once the connection is open
+    socket.addEventListener('open', function (event) {
+        socket.send(jsonStringWebSocket);  // Send the object as a JSON string
+        console.log('Object sent to WebSocket server:', jsonStringWebSocket);
+    });
+</script>
+
+<!-- Fetch Example -->
+<h2>Fetch Example</h2>
+<p>Open the console to see HTTP Fetch communication.</p>
+
+<script>
+    // Sample object to send via Fetch
+    const objectToSendFetch = {
+        name: "Jane",
+        age: 28,
+        occupation: "Designer"
+    };
+
+    // Convert object to JSON string
+    const jsonStringFetch = JSON.stringify(objectToSendFetch);
+
+    // Send the JSON string via HTTP POST request
+    fetch('https://your-server-endpoint.com/receive', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: jsonStringFetch  // Send the object as a JSON string
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Response from Fetch API server:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+</script>
+
+</body>
+</html>
