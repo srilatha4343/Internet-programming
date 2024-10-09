@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input and Output Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Title -->
+    <h1>Simple Input and Output Example</h1>
+
+    <!-- Container for input and button -->
+    <div class="container">
+        <!-- Input field for name -->
+        <input type="text" id="nameInput" placeholder="Enter your name">
+
+        <!-- Button to display greeting -->
+        <button onclick="displayGreeting()">Submit</button>
+
+        <!-- Placeholder for output -->
+        <div id="output"></div>
+    </div>
+
+    <!-- JavaScript to process the input and display the output -->
+    <script>
+        function displayGreeting() {
+            // Get the input value
+            var name = document.getElementById("nameInput").value;
+
+            // Check if the input is not empty
+            if (name.trim() !== "") {
+                // Display a greeting message
+                document.getElementById("output").innerHTML = "Hello, " + name + "! Welcome to the website!";
+            } else {
+                // Display a message if no input is provided
+                document.getElementById("output").innerHTML = "Please enter your name!";
+            }
+        }
+    </script>
+
+</body>
+</html>
